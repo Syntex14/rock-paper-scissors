@@ -58,3 +58,27 @@ COMPARE computerSelection to playerSelection
 
     alert
 */
+
+let computerSelection;
+let playerSelection;
+
+function getComputerSelection() {
+
+    if (Math.floor(Math.random() * 10) <= 3) {
+        return computerSelection = "rock";
+    }
+    else if (Math.floor(Math.random() * 10) <=6) {
+        return computerselection = "paper"; 
+    }
+    else {
+        return computerSelection = "scissor";
+    }
+
+
+};
+
+function getPlayerSelection() {
+    let intermSelection;
+        intermSelection = prompt("Hi, please enter rock, paper, or scissor!", "rock");
+};
+
