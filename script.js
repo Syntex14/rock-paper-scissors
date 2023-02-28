@@ -59,8 +59,10 @@ COMPARE computerSelection to playerSelection
     alert
 */
 
+/*
 let computerSelection;
 let playerSelection;
+let intermSelection;
 
 function getComputerSelection() {
 
@@ -75,10 +77,102 @@ function getComputerSelection() {
     }
 
 
-};
+}
 
 function getPlayerSelection() {
-    let intermSelection;
-        intermSelection = prompt("Hi, please enter rock, paper, or scissor!", "rock");
-};
+do{
+        intermSelection = prompt("Please re-enter your choice using rock, paper, or scissor.", "rock")
+    }while(!intermSelection); 
+}
+
+function lowerCasePlayerSelection() {
+    return intermSelection.toLowerCase();
+}
+
+ function checkPlayerSelection() {
+    while((intermSelection !== "rock") || intermSelection !== "paper" || intermSelection !== "scissor") {
+        intermSelection = prompt("Please re-enter your choice using rock, paper, or scissor.", "rock"); 
+    }
+        return intermSelection;
+} 
+
+function combinePlayerSelection() {
+    getPlayerSelection();
+    lowerCasePlayerSelection();
+
+
+    return (
+        playerSelection = intermSelection
+    );
+} 
+*/
+
+
+let computerSelection;
+let playerSelection;
+let intermSelection;
+let intermSelectionLowerCase;
+
+function getComputerSelection() {
+
+    if (Math.floor(Math.random() * 10) <= 3) {
+        return computerSelection = "rock";
+    }
+    else if (Math.floor(Math.random() * 10) <= 6) {
+        return computerSelection = "paper"; 
+    }
+    else {
+        return computerSelection = "scissor";
+    }
+}
+
+function getPlayerSelection() {
+
+    do{
+            intermSelection = prompt("Please enter your choice using rock, paper, or scissor.", "rock");
+        }while(!intermSelection); 
+            intermSelectionLowerCase = intermSelection.toLowerCase();
+            return playerSelection = intermSelectionLowerCase;
+    }
+    
+function playRound() {
+    
+    switch(computerSelection) {
+        case "rock":
+            if (computerSelection == "rock" && playerSelection == "paper") {
+                return alert("Player Won!");
+            }
+            else if (computerSelection == "rock" && playerSelection == "scissor") {
+                return alert("Computer Won!");
+            }
+            else {
+                return alert("Tie!");
+            }
+            break;
+        case "paper":
+            if (computerSelection == "paper" && playerSelection == "scissor") {
+                return alert("Player Won!");
+            }
+            else if (computerSelection == "paper" && playerSelection == "rock") {
+                return alert("Computer Won!");
+            }
+            else {
+                return alert("Tie!");
+            }
+        case "scissor":
+            if (computerSelection == "scissor" && playerSelection == "rock") {
+                return alert("Player Won!");
+            }
+            else if (computerSelection == "scissor" && playerSelection == "paper") {
+                return alert("Computer Won!");
+            }
+            else {
+                return alert("Tie!");
+            }
+    }
+}
+
+function game() {
+    playRound(getPlayerSelection(getComputerSelection()));
+}
 
