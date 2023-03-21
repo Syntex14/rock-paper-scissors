@@ -114,25 +114,26 @@ let intermSelection;
 let intermSelectionLowerCase;
 
 function getComputerSelection() {
-
+    
     if (Math.floor(Math.random() * 10) <= 3) {
-        return computerSelection = "rock";
+         computerSelection = "rock";
     }
     else if (Math.floor(Math.random() * 10) <= 6) {
-        return computerSelection = "paper"; 
+         computerSelection = "paper"; 
     }
     else {
-        return computerSelection = "scissor";
+         computerSelection = "scissor";
     }
+    
 }
 
-function getPlayerSelection() {
+function getPlayerSelection(intermSelection) {
 
     do{
             intermSelection = prompt("Please enter your choice using rock, paper, or scissor.", "rock");
         }while(!intermSelection); 
-            intermSelectionLowerCase = intermSelection.toLowerCase();
-            return playerSelection = intermSelectionLowerCase;
+            playerSelection = intermSelection.toLowerCase();
+                getComputerSelection();
     }
     
 function playRound() {
@@ -148,7 +149,6 @@ function playRound() {
             else {
                 return alert("Tie!");
             }
-            break;
         case "paper":
             if (computerSelection == "paper" && playerSelection == "scissor") {
                 return alert("Player Won!");
@@ -173,6 +173,6 @@ function playRound() {
 }
 
 function game() {
-    playRound(getPlayerSelection(getComputerSelection()));
+    playRound(getPlayerSelection());
 }
 
