@@ -1,0 +1,21 @@
+header {
+    background-color: khaki;
+
+}
+
+body {
+    
+}
+
+img {
+    height: 65px;
+    width: 65px;
+}
+
+.main-body {
+    flex: auto;
+}
+
+.results {
+    flex: auto;
+}
