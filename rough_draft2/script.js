@@ -53,6 +53,29 @@
                 // IF player win, add one to playerWin
                 // else, add one to computerWin
 
+let computerWin = 0;
+let playerWin = 0;
+
+
+const imgRock = document.querySelector("#rock");
+    imgRock.addEventListener("click", (e) => {
+        let result = playRound("rock");
+        game(result);
+    }); // create a function for the second parameter/argurment and then use to set up te playerSelection
+
+const imgPaper = document.querySelector("#paper");
+    imgPaper.addEventListener("click", () => {
+        let result = playRound("paper");
+        game(result);
+    });
+
+const imgScissor = document.querySelector("#scissor");
+    imgScissor.addEventListener("click", () => {
+        let result = playRound("scissor");
+        game(result);
+        
+    });
+
 
 function getComputerChoice() {
 
@@ -67,58 +90,67 @@ else {
 }
 }
 
-function playRound(playerSelection, computerSelection = getComputerChoice()) {
-    let playerSelectionLower = playerSelection.toLowerCase();
-    switch(playerSelectionLower) {
+function playRound(playerSelection, computerSelection) {
+    computerSelection = getComputerChoice();
+    switch(playerSelection) {
         case "rock":
-            if (playerSelectionLower == "rock" && computerSelection == "paper") {
+            if (playerSelection == "rock" && computerSelection == "paper") {
                 return "Computer Won!";
             }
-            else if (playerSelectionLower == "rock" && computerSelection == "scissor") {
+            else if (playerSelection == "rock" && computerSelection == "scissor") {
                 return "Player Won!";
             }
             else {
                 return "Tie!";
             }
         case "paper":
-            if (playerSelectionLower == "paper" && computerSelection == "scissor") {
+            if (playerSelection == "paper" && computerSelection == "scissor") {
                 return "Computer Won!";
             }
-            else if (playerSelectionLower == "paper" && computerSelection == "rock") {
+            else if (playerSelection == "paper" && computerSelection == "rock") {
                 return "Player Won!";
             }
             else {
                 return "Tie!";
             }
         case "scissor":
-            if (playerSelectionLower == "scissor" && computerSelection == "rock") {
+            if (playerSelection == "scissor" && computerSelection == "rock") {
                 return "Computer Won!";
             }
-            else if (playerSelectionLower == "scissor" && computerSelection == "paper") {
+            else if (playerSelection == "scissor" && computerSelection == "paper") {
                 return "Player Won!";
             }
             else {
                 return "Tie!";
             }
     }
+};
+
+
+
+function game(val) { 
+    if (val === "Player Won!") { // update this code using ternary operator
+        playerWin += 1;
+    }
+    else if (val === "Computer Won!") { // forgetting about ties, will need to program that into this.
+        computerWin += 1;
+    }
+    myResults();
 }
 
-function game() {
-    let computerWin = 0;
-    let playerWin = 0;
-    let playerSelectionLoop;
-    for (i = 0; i < 5; i++) {
-        playerSelectionLoop = prompt("Please enter your choice: rock, paper, or scissor.")
-        let playRoundStore = playRound(playerSelection = playerSelectionLoop);
-            if (playRoundStore === "Player Won!") { // update this code using ternary operator
-                playerWin += 1;
-            }
-            else if (playRoundStore === "Computer Won!") { // forgetting about ties, will need to program that into this.
-                computerWin += 1;
-            }
+function myResults() {
+    if (playerWin === 5) {
+        console.log("Player won!");
+
     }
+    else if (computerWin === 5) {
+        console.log("Computer won!");
+    }
+};
+    /*
     if (playerWin > computerWin) {
-        return "Player won more rounds than computer!";
+        // return "Player won more rounds than computer!"; will have to fix return statement
     }
-    return "Computer won more rounds than player!";
-}
+    else {
+    // return "Computer won more rounds than player!"; same as above
+    } */
