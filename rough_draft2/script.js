@@ -61,18 +61,21 @@ const imgRock = document.querySelector("#rock");
     imgRock.addEventListener("click", (e) => {
         let result = playRound("rock");
         game(result);
+        roundAnnouncement(result);
     }); // create a function for the second parameter/argurment and then use to set up te playerSelection
 
 const imgPaper = document.querySelector("#paper");
     imgPaper.addEventListener("click", () => {
         let result = playRound("paper");
         game(result);
+        roundAnnouncement(result);
     });
 
 const imgScissor = document.querySelector("#scissor");
     imgScissor.addEventListener("click", () => {
         let result = playRound("scissor");
         game(result);
+        roundAnnouncement(result);
         
     });
 
@@ -131,26 +134,26 @@ function playRound(playerSelection, computerSelection) {
 function game(val) { 
     if (val === "Player Won!") { // update this code using ternary operator
         playerWin += 1;
+
     }
     else if (val === "Computer Won!") { // forgetting about ties, will need to program that into this.
         computerWin += 1;
     }
-    myResults();
 }
 
-function myResults() {
+function roundAnnouncement(winner) {
+    const announcement = document.querySelector("#winner-box");
     if (playerWin === 5) {
-        console.log("Player won!");
-
+        announcement.textContent = `Player has won five rounds!`;
     }
     else if (computerWin === 5) {
-        console.log("Computer won!");
-    }
-};
-    /*
-    if (playerWin > computerWin) {
-        // return "Player won more rounds than computer!"; will have to fix return statement
+        announcement.textContent = `Computer has won five rounds!`;
     }
     else {
-    // return "Computer won more rounds than player!"; same as above
-    } */
+    announcement.textContent = `${winner}`;
+    }
+}
+
+function currentScore {
+    const scoreBoard = document.querySelector("score-board");
+}
