@@ -62,6 +62,7 @@ const imgRock = document.querySelector("#rock");
         let result = playRound("rock");
         game(result);
         roundAnnouncement(result);
+        currentScore();
     }); // create a function for the second parameter/argurment and then use to set up te playerSelection
 
 const imgPaper = document.querySelector("#paper");
@@ -76,6 +77,7 @@ const imgScissor = document.querySelector("#scissor");
         let result = playRound("scissor");
         game(result);
         roundAnnouncement(result);
+        currentScore();
         
     });
 
@@ -154,6 +156,9 @@ function roundAnnouncement(winner) {
     }
 }
 
-function currentScore {
-    const scoreBoard = document.querySelector("score-board");
+function currentScore() {
+    const scoreBoardPlayer = document.querySelector("#score-board-player");
+    scoreBoardPlayer.textContent = `${playerWin}`;
+    const scoreBoardComputer = document.querySelector("#score-board-computer");
+    scoreBoardComputer.textContent = `${computerWin}`;
 }

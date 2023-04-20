@@ -21,7 +21,6 @@ img {
 
 .results {
     display: flex;
-    border: 5px goldenrod solid;
     width: 800px;
     justify-content: center;
     gap: 60px;
@@ -30,7 +29,6 @@ img {
 .selection-boxes {
    display: flex; 
    text-align: center;
-   border: 5px black solid;
    width: 600px;
     
 }
@@ -40,7 +38,6 @@ img {
 }
 
 .player-results, .computer-results {
-    border: 5px aqua solid;
     text-align: center;
 }
 
